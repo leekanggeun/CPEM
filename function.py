@@ -5,7 +5,7 @@ def lrelu(x, leak=0.2):
     f2 = 0.5*(1-leak)
     return f1*x+f2*abs(x)
 
-def fnn(x, input_size, output_size, keep_prob, stddev=0.01, constant=0.0001, dropout=True, end=False, seed=2018):
+def fnn(x, input_size, output_size, keep_prob, stddev=0.01, constant=0.0001, dropout=True, end=False):
     fc_w = tf.Variable(tf.truncated_normal([input_size,output_size], stddev=stddev,seed=seed))
     fc_b = tf.Variable(tf.constant(constant,shape=[output_size]), dtype=tf.float32)
     fc_h = tf.nn.relu(tf.matmul(x,fc_w)+fc_b) if not end else tf.matmul(x,fc_w)+fc_b
@@ -30,15 +30,3 @@ def fcn(x, input_size, output_size, nlayers, nparameters, keep_prob):
 
     ###
    
-def feature_selection(data, label, n, t=0):
-    lsvc = LinearSVC(C=1, penalty="l1", dual=False).fit(data, label)
-    try:
-        if t == 0:
-            coef = np.squeeze(np.sum(np.square(np.array(model.coef_)), axis=0))
-        else:
-            coef = np.squeeze(np.square(model.coef_))
-    except AttributeError:
-        coef = np.squeeze(np.array(model.feature_importances_))
-    ind = np.argsort(coef)
-    importance_feature = np.array(data[:,ind[-n-1:-1]])
-    return importance_feature 
