@@ -1,1 +1,6 @@
+Data is avaliable on below address because of data size.
 You can download the data and lable in here "https://drive.google.com/open?id=1BqX55Ue0J5SFy1QX69HYX0-0UhiLIbTd"
+
+Requirements
+tensorflow-gpu>=1.10.0
+scikit-learn>=0.18.1
