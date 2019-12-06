@@ -61,7 +61,7 @@ def dnn(train_data, train_label, test_data, test_label):
     config.gpu_options.allow_growth=True
     batch_size = 10
     input_size = np.shape(train_data)[1]
-    output_size = 48
+    output_size = 31
 
     with g.as_default():
         p_x = tf.placeholder(tf.float32, [batch_size, 1, input_size, 1])
