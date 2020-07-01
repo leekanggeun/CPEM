@@ -6,8 +6,8 @@ The paper is available on this liknk [CPEM](https://www.nature.com/articles/s415
 ## DATA
 Data is avaliable on below address because of data size.
 You can download the data and lable in here 
-[Somatic alteration information for 7002 patients](https://drive.google.com/file/d/1uDFNhzsodQky71bqykmJGcWnBfhO5_hp/view?usp=sharing)
-[Cancer type for 7002 patients](https://drive.google.com/file/d/1l2uggi6rfbNwarkR2fcAsOf2q5CLfbyu/view?usp=sharing)
+[Somatic alteration information](https://drive.google.com/file/d/1uDFNhzsodQky71bqykmJGcWnBfhO5_hp/view?usp=sharing)
+, [Cancer type information](https://drive.google.com/file/d/1l2uggi6rfbNwarkR2fcAsOf2q5CLfbyu/view?usp=sharing)
 
 ## 
 
