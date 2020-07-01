@@ -12,9 +12,10 @@ You can download the data and lable in here
 ## Quick start
 ----------------------------------
 We recommend the below argument to use the similar verification method as this paper.
-'''sh
+```sh
 python main.py --epoch=120 --batch_size=16 --lr=1e-3 --inner=10 --outer=10 --ensemble --search --feature_selection
-'''
+```
+
 #inner: This argument can be 'LOOCV' (Leave One Out Cross Validation) or 'K' (K should be integer) for K-fold inner cross validation.
 #outer: This argument can be 'LOOCV' (Leave One Out Cross Validation) or 'K' (K should be integer) for K-fold outer cross validation.
 #ensemble: Whether you use ensemble model
