@@ -1,7 +1,8 @@
 ## CPEM
-**CPEM: Accurate cancer type classification based on somatic alterations using an ensemble of a random foerest and a deep neural network
+**CPEM: Accurate cancer type classification based on somatic alterations using an ensemble of a random foerest and a deep neural network**
 The paper is available on the https://www.nature.com/articles/s41598-019-53034-3
-![Overview]()
+![Overview](https://github.com/leekanggeun/CPEM/edit/master/overview.PNG)
+
 ## DATA
 Data is avaliable on below address because of data size.
 You can download the data and lable in here 
