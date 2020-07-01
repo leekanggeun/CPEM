@@ -1,7 +1,7 @@
 ## CPEM
 **CPEM: Accurate cancer type classification based on somatic alterations using an ensemble of a random foerest and a deep neural network**
 The paper is available on the https://www.nature.com/articles/s41598-019-53034-3
-![Overview](https://github.com/leekanggeun/CPEM/edit/master/overview.PNG?raw=true)
+![Overview](https://github.com/leekanggeun/CPEM/overview.PNG?raw=true)
 
 ## DATA
 Data is avaliable on below address because of data size.
@@ -12,9 +12,12 @@ https://drive.google.com/file/d/1l2uggi6rfbNwarkR2fcAsOf2q5CLfbyu/view?usp=shari
 ##
 
 ## Requirements
-tensorflow-gpu>=2.1.0 \\
-scikit-learn>=0.18.1 \\ 
-tensorflow-addons == 0.9.0 \\
+tensorflow-gpu>=2.1.0 
+
+scikit-learn>=0.18.1 
+
+tensorflow-addons == 0.9.0 
+
 hdf5sotrage
 
 ## Future work
