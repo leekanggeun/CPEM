@@ -70,8 +70,8 @@ class CPEM_DNN(keras.Model):
         self.h1 = layers.Dense(self.nparameters, activation=None)
         self.h2 = layers.Dense(self.nparameters, activation=None)
         self.h3 = layers.Dense(self.out_channel, activation=None)
-        self.s1 = IN(tf.nn.swish)
-        self.s2 = IN(tf.nn.swish)
+        self.s1 = IN(tf.nn.leaky_relu)
+        self.s2 = IN(tf.nn.leaky_relu)
         
 
     def call(self, inputs, training=True):
