@@ -67,23 +67,25 @@ class CPEM_DNN(keras.Model):
         self.nparameters = 4096
         self.out_channel = 31
         self.rate = 0.4
-        self.h1 = layers.Dense(self.nparameters, activation=None)
-        self.h2 = layers.Dense(self.nparameters, activation=None)
-        self.h3 = layers.Dense(self.out_channel, activation=None)
-        self.s1 = IN(tf.nn.leaky_relu)
-        self.s2 = IN(tf.nn.leaky_relu)
+        self.h1 = layers.Dense(self.nparameters, activation=tf.nn.leaky_relu)
+        self.h2 = layers.Dense(self.nparameters, activation=tf.nn.leaky_relu)
+        self.h3 = layers.Dense(self.nparameters, activation=tf.nn.leaky_relu)
+        self.h4 = layers.Dense(self.out_channel, activation=None)
+
         
 
     def call(self, inputs, training=True):
         h = self.h1(inputs)
-        h = self.s1(h)
-        h = layers.Dropout(self.rate)(h)
+        h = layers.Dropout(self.rate)(h, training=training)
         h = self.h2(h)
-        h = self.s2(h)
-        h = layers.Dropout(self.rate)(h)
+        h = layers.Dropout(self.rate)(h, training=training)
         h = self.h3(h)
-        #h = layers.Dropout(self.rate)(h)
+        h = layers.Dropout(self.rate)(h, training=training)
+        h = self.h4(h)
         return tf.nn.softmax(h)
+    
+    def predict(self, inputs):
+        return self(inputs, training=False)
 
 class LRRecorder(keras.callbacks.Callback):
     """Record current learning rate. """
