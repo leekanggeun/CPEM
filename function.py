@@ -25,7 +25,7 @@ def DNN(train_data, train_label, test_data, args):
         optimizer = tfa.optimizers.RectifiedAdam(lr=learning_rate)
         DNN.compile(optimizer, loss=keras.losses.CategoricalCrossentropy(reduction=tf.keras.losses.Reduction.AUTO))
         DNN.fit(train_data, train_label, callbacks=callback, epochs=epochs, shuffle=True, batch_size=BATCH_SIZE)
-        predict = DNN(test_data, training=False)
+        predict = DNN.predict(test_data)
 
     ###Calculate the accuracy, precision, recall and f1-score
     return predict
