@@ -64,24 +64,21 @@ class IN(layers.Layer):
 class CPEM_DNN(keras.Model):
     def __init__(self):
         super(CPEM_DNN, self).__init__()
-        self.nparameters = 4096
+        self.nparameters = 2048
         self.out_channel = 31
         self.rate = 0.4
         self.h1 = layers.Dense(self.nparameters, activation=tf.nn.leaky_relu)
         self.h2 = layers.Dense(self.nparameters, activation=tf.nn.leaky_relu)
-        self.h3 = layers.Dense(self.nparameters, activation=tf.nn.leaky_relu)
-        self.h4 = layers.Dense(self.out_channel, activation=None)
-
+        self.h3 = layers.Dense(self.out_channel, activation=None)
+        self.dp = layers.Dropout(self.rate)
         
 
     def call(self, inputs, training=True):
         h = self.h1(inputs)
-        h = layers.Dropout(self.rate)(h, training=training)
+        h = self.dp(h, training=training)
         h = self.h2(h)
-        h = layers.Dropout(self.rate)(h, training=training)
+        h = self.dp(h, training=training)
         h = self.h3(h)
-        h = layers.Dropout(self.rate)(h, training=training)
-        h = self.h4(h)
         return tf.nn.softmax(h)
     
     def predict(self, inputs):
