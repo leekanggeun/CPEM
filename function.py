@@ -16,13 +16,14 @@ def DNN(train_data, train_label, test_data, args):
     #label_dist = strategy.experimental_distribute_dataset(label_set)
 
     ##Keras callbacks
-    def scheduler(epoch):
-        return learning_rate*(1.0e-3**(epoch/epochs))
-    callback = [tf.keras.callbacks.LearningRateScheduler(scheduler), LRRecorder()]
+    #def scheduler(epoch):
+    #    return learning_rate*(1.0e-3**(epoch/epochs))
+    #callback = [tf.keras.callbacks.LearningRateScheduler(scheduler), LRRecorder()]
 
     with strategy.scope():
         DNN = CPEM_DNN()
-        optimizer = tfa.optimizers.RectifiedAdam(lr=learning_rate)
+        #optimizer = tfa.optimizers.RectifiedAdam(lr=learning_rate)
+        optimizer = tf.keras.optimizers.Adam(learning_rate)
         DNN.compile(optimizer, loss=keras.losses.CategoricalCrossentropy(reduction=tf.keras.losses.Reduction.AUTO))
         DNN.fit(train_data, train_label, callbacks=callback, epochs=epochs, shuffle=True, batch_size=BATCH_SIZE)
         predict = DNN.predict(test_data)
